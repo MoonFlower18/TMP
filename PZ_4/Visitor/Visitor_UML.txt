@@ -1,0 +1,53 @@
+@startuml
+class OrderItemVisitor {
+  «interface»
+  visit(self, item) 
+}
+
+class ItemElement {
+  «interface»
+  accept(self, visitor: OrderItemVisitor)
+}
+
+ItemElement ..> OrderItemVisitor
+
+class Tort {
+  init()
+  get_price(self)
+  accept(self, visitor: OrderItemVisitor)
+}
+
+class Coffee {
+  init()
+  get_price(self)
+  accept(self, visitor: OrderItemVisitor)
+}
+
+Tort <.. OrderItemVisitor
+Coffee <.. OrderItemVisitor
+
+Tort ..> ItemElement
+Coffee ..> ItemElement
+
+class WithOutDiscountVisitor {
+  visit(self, item: ItemElement)
+}
+
+class OnlyTortDiscountVisitor {
+  visit(self, item: ItemElement)
+}
+
+class OnlyCoffeeDiscountVisitor {
+  visit(self, item: ItemElement)
+}
+
+class AllDiscountVisitor {
+  visit(self, item: ItemElement)
+}
+
+WithOutDiscountVisitor ..> OrderItemVisitor
+OnlyTortDiscountVisitor ..> OrderItemVisitor
+OnlyCoffeeDiscountVisitor ..> OrderItemVisitor
+AllDiscountVisitor ..> OrderItemVisitor
+
+@enduml

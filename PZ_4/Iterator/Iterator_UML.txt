@@ -1,0 +1,32 @@
+@startuml
+class Iterator_main {
+  sweets = sweetsAggregate(5)
+  iterator = sweets.iterator()
+}
+
+class Sweetsnumlerator {
+  init()
+  next(self)
+  has_next(self)
+}
+
+class Iterator {
+  next(self)
+  has_next(self)
+}
+
+class SweetsAggregate {
+  iterator()
+  amount_num()
+}
+
+Iterator_main ..> Iterator
+
+SweetsAggregate --> Iterator_main
+SweetsAggregate ..> Sweetsnumlerator
+SweetsAggregate --o Sweetsnumlerator
+
+Sweetsnumlerator --> Iterator
+
+
+@enduml

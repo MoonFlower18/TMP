@@ -1,0 +1,54 @@
+@startuml
+class Algorithm {
+  template method()
+  flagstock()
+  draw_1()
+  draw_2()
+  draw_3()
+  final()
+  printer()
+}
+
+class Template_Method {
+  self.flagstock()
+  self.draw_1()
+  self.draw_2()
+  self.draw_3()
+  self.final()
+  self.printer()
+}
+
+Algorithm <-- Template_Method
+
+class Rus_flag {
+  z = colors
+  z.paint
+  draw_1()
+  draw_2()
+  draw_3()
+  final()
+}
+
+class Ven_flag {
+  z = colors
+  z.paint
+  draw_1()
+  draw_2()
+  draw_3()
+  final()
+}
+
+Rus_flag --> Algorithm
+Ven_flag --> Algorithm
+
+class Colours {
+  paint_white()
+  paint_red()
+  paint_green()
+  paint_blue()
+}
+
+Rus_flag -- Ven_flag
+Colours --> Rus_flag 
+Colours --> Ven_flag
+@enduml

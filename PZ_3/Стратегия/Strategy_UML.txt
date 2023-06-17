@@ -1,0 +1,48 @@
+@startuml
+class Paper {
+  selection()
+}
+
+class Rock {
+  selection()
+}
+
+class Chic {
+  selection()
+}
+
+class Spok {
+  selection()
+}
+
+class Yacher {
+  selection()
+}
+
+class Strategy {
+  int n
+  str vibor
+  playtime()
+  player1.play(player2)
+}
+
+class Game {
+  strategy: Variant
+  init()
+  play(play)
+}
+
+class Variant {
+  selection()
+}
+
+Paper --> Variant
+Rock --> Variant
+Chic --> Variant
+Spok --> Variant
+Yacher --> Variant
+
+Strategy *--> Variant
+
+Strategy -- Game
+@enduml
